@@ -1,22 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React, { useEffect, useState } from 'react'
+import Axios from 'axios'
 
-function App() {
+const App = () => {
+
+  useEffect(() => {
+    Axios.get("https://timesheetbackend2021.azurewebsites.net/api/workassignments")
+      .then(res => setWorks(res.data))
+  }
+    , [])
+
+  const [works, setWorks] = useState([{ id: 100, title: "Loading..." }])
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <h2>
+          Dockerized React App
+        </h2>
+
+        <h3>
+          Työt
+        </h3>
+        {works.map(w =>
+          <p key={w.id}>{w.title}</p>
+        )}
+
       </header>
     </div>
   );

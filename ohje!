@@ -1,0 +1,7 @@
+Buildaus imageksi tehdään komennolla:
+
+docker build -t reactdocktimesheet .
+
+Ajaminen paikallisesti tehdään komennolla:
+
+docker run -it -p 8000:80 --name timesheetfront reactdocktimesheet
