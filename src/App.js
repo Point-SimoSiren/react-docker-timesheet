@@ -5,7 +5,7 @@ import Axios from 'axios'
 const App = () => {
 
   useEffect(() => {
-    Axios.get("https://timesheetbackend2021.azurewebsites.net/api/workassignments")
+    Axios.get("https://timesheetrestapi.azurewebsites.net/api/workassignments")
       .then(res => setWorks(res.data))
   }
     , [])
